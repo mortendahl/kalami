@@ -1,0 +1,15 @@
+
+guess x in
+guess y in
+
+guess xr in
+guess yr in
+
+if x*y == 0 then reject
+otherwise
+
+let p = x*x + xr in
+let q = y*y + yr in
+
+if p == q then accept
+otherwise reject

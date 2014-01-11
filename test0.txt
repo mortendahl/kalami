@@ -1,0 +1,5 @@
+
+guess x in
+
+if x == 10 then accept
+otherwise reject
