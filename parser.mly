@@ -33,6 +33,10 @@ main:
     | statement EOF                 { $1 }
 ;
 
+identifier:
+    STR         { $1 }
+;
+
 expression:
     INT                             { ExprNumber($1) }
     | identifier                    { ExprVariable($1) }
@@ -60,9 +64,5 @@ statement:
     | GUESS identifier FROM expression TO expression IN statement   { StmtGuessLowerUpperBound($2, $4, $6, $8) }
     | ACCEPT                                                        { StmtAccept }
     | REJECT                                                        { StmtReject }
-;
-
-identifier:
-    STR         { $1 }
 ;
     
