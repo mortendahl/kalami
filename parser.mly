@@ -33,6 +33,10 @@ main:
 	| statement EOF					{ $1 }
 ;
 
+identifier:
+	STR			{ $1 }
+;
+
 expression:
 	INT								{ ExprNumber($1) }
 	| identifier					{ ExprVariable($1) }
@@ -61,8 +65,3 @@ statement:
 	| ACCEPT														{ StmtAccept }
 	| REJECT														{ StmtReject }
 ;
-
-identifier:
-	STR			{ $1 }
-;
-	

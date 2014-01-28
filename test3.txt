@@ -1,0 +1,13 @@
+
+(* **** Two Factoring **** *)
+
+let n = 681 in
+
+guess p from 1 to n in
+guess q from 1 to n in
+
+if p == 1 or p == n then reject
+otherwise
+
+if n == p*q then accept
+otherwise reject

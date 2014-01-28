@@ -6,9 +6,10 @@ exception Eof
 }
 
 rule token = parse
-	[' ' '\t']				{ token lexbuf }    (* skip blanks *)
-	| ('\r')? '\n'			{ token lexbuf }	(* skip line breaks *)
-	| "(*"					{ comments 0 lexbuf }
+
+	[' ' '\t']				{ token lexbuf }    	(* skip blanks *)
+	| ('\r')? '\n'			{ token lexbuf }		(* skip line breaks *)
+	| "(*"					{ comments 0 lexbuf }	(* start comment parsing on level 0 *)
 	
 	| '('					{ LPAREN }
 	| ')'					{ RPAREN }
@@ -44,7 +45,8 @@ rule token = parse
 	
 	
 and comments level = parse
-	| "*)"			{ if level = 0 then token lexbuf else comments (level-1) lexbuf }
-	| "(*"			{ comments (level+1) lexbuf }
+
+	| "*)"			{ if level = 0 then token lexbuf else comments (level-1) lexbuf }	(* stop comment parsing for this level and return to level n-1 (or to token parsing if level 0) *)
+	| "(*"			{ comments (level+1) lexbuf }										(* start comment parsing on level n+1 *)
 	| _				{ comments level lexbuf }
 	| eof			{ raise Eof }
