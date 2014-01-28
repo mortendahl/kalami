@@ -97,19 +97,6 @@ let rec eval_cnd env cnd =
 
 
 let rec eval_stmt env guesses stmt =
-    (*let rec guess_helper_upperbound id lower_bound upper_bound stmt =
-        let guess = lower_bound in
-        let env' = (id, guess) :: env in
-        let result = eval_stmt env' guesses stmt in
-        match result with
-            None ->
-                if guess < upper_bound then
-                    guess_helper_upperbound id (guess + 1) upper_bound stmt
-                else 
-                    None
-            | Some(_) ->
-                result
-    in*)
     match stmt with 
         StmtLet(id, expr, stmt) ->
             let expr_value = eval_expr env expr in
