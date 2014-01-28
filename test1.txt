@@ -1,0 +1,12 @@
+
+guess x from 0 in
+guess y from 1 to 100 in
+
+if x*y == 0 then reject
+otherwise
+
+let p = x*x + 15 in
+let q = y*y in
+
+if p == q then accept
+otherwise reject

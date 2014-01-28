@@ -1,0 +1,20 @@
+(*
+
+This example shows why:
+
+- inline
+- staticeval
+- pushdown
+
+are all useful
+
+*)
+
+
+guess n in
+let x = 5 in
+let y = x+1 in
+let m = n in
+if x == y and n == m then 
+  accept
+otherwise reject

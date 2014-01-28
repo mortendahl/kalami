@@ -1,0 +1,14 @@
+
+guess a in
+guess b in
+guess c in
+
+let aa = a*a in
+let bb = b*b in
+let cc = c*c in
+
+if not 0 < a*b*c then reject
+otherwise
+
+if aa + bb == cc then accept
+otherwise reject

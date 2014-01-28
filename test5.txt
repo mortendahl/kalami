@@ -1,0 +1,11 @@
+
+guess a in
+guess b in
+
+if 10 < a then
+	reject
+otherwise
+	if a + b == 20 then
+		accept
+	otherwise
+		reject

@@ -1,0 +1,4 @@
+
+guess p in
+let q = p + 1 in
+reject
