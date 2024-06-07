@@ -1,0 +1,7 @@
+**/*.cmi
+**/*.cmo
+kalami
+
+lexer.ml
+parser.ml
+parser.mli
