@@ -209,23 +209,3 @@ let rec get_unbounded_guesses stmt =
             
         | StmtReject ->
             []
-
-
-let eval stmt =
-    let unbounded_guesses = get_unbounded_guesses stmt in
-    if (List.length unbounded_guesses) > 0 then
-        let projector = project (List.length unbounded_guesses) in
-        let rec helper number = 
-            let projection = projector number in
-            let guesses = List.combine unbounded_guesses projection in
-            let result = eval_stmt [] guesses stmt in
-            match result with
-                None ->
-                    helper (number + 1)
-                | Some(_) ->
-                    result
-        in
-        helper 0
-    else
-        eval_stmt [] [] stmt
-    

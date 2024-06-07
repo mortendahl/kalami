@@ -11,7 +11,7 @@ build:
 		parser.ml \
 		printing.ml \
 		evaluation.ml \
-		interfacewoa.ml
+		cli.ml
 
 	ocamlc -o kalami \
 		lexer.cmo \
@@ -19,7 +19,7 @@ build:
 		structure.cmo \
 		printing.cmo \
 		evaluation.cmo \
-		interfacewoa.cmo
+		cli.cmo
 
 .PHONY: clean
 clean:
