@@ -11,7 +11,7 @@ let printlist printfun eles seperator =
 				helper printfun rest seperator
 	in
 	helper printfun eles ""
-	
+
 let print_env env =
 	printlist 
 		(fun (id, value) -> print_string id; print_string " = "; print_int value)
@@ -117,7 +117,7 @@ let print_stmt stmt =
 				print_string " then \n";
 				helper (indent^"  ") stmt_true;
 				print_string ("\n" ^ indent);
-				print_string "otherwise \n";
+				print_string "else \n";
 				helper (indent^"  ") stmt_false
 				
 			| StmtGuess(id, stmt) ->
