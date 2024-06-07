@@ -7,7 +7,7 @@ guess p from 1 to n in
 guess q from 1 to n in
 
 if p == 1 or p == n then reject
-otherwise
+else
 
 if n == p*q then accept
-otherwise reject
+else reject

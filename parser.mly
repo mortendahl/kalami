@@ -11,7 +11,7 @@ open Lexer
 %token LPAREN RPAREN
 %token PLUS MINUS EXP MULT DIV
 %token EQ ASSIGN LT NOT OR AND
-%token LET IN IF THEN OTHERWISE GUESS ACCEPT REJECT FROM TO
+%token LET IN IF THEN ELSE GUESS ACCEPT REJECT FROM TO
 %token EOF
 
 %right PLUS MINUS
@@ -58,7 +58,7 @@ condition:
 	
 statement:
 	LET identifier ASSIGN expression IN statement					{ StmtLet($2, $4, $6) }
-	| IF condition THEN statement OTHERWISE statement				{ StmtIf($2, $4, $6) }
+	| IF condition THEN statement ELSE statement					{ StmtIf($2, $4, $6) }
 	| GUESS identifier IN statement									{ StmtGuess($2, $4) }
 	| GUESS identifier FROM expression IN statement					{ StmtGuessLowerBound($2, $4, $6) }
 	| GUESS identifier FROM expression TO expression IN statement	{ StmtGuessLowerUpperBound($2, $4, $6, $8) }

@@ -8,7 +8,7 @@ let bb = b*b in
 let cc = c*c in
 
 if not 0 < a*b*c then reject
-otherwise
+else
 
 if aa + bb == cc then accept
-otherwise reject
+else reject

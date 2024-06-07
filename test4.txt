@@ -6,10 +6,10 @@ guess xr in
 guess yr in
 
 if x*y == 0 then reject
-otherwise
+else
 
 let p = x*x + xr in
 let q = y*y + yr in
 
 if p == q then accept
-otherwise reject
+else reject

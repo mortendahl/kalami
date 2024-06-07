@@ -10,7 +10,7 @@ rule token = parse
 	[' ' '\t']				{ token lexbuf }    	(* skip blanks *)
 	| ('\r')? '\n'			{ token lexbuf }		(* skip line breaks *)
 	| "(*"					{ comments 0 lexbuf }	(* start comment parsing on level 0 *)
-	
+
 	| '('					{ LPAREN }
 	| ')'					{ RPAREN }
 	| '+'					{ PLUS }
@@ -30,7 +30,7 @@ rule token = parse
 	| "in"					{ IN }
 	| "if"					{ IF }
 	| "then"				{ THEN }
-	| "otherwise"			{ OTHERWISE }
+	| "else"				{ ELSE }
 	| "guess"				{ GUESS }
 	| "reject"				{ REJECT }
 	| "accept"				{ ACCEPT }
